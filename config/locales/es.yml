@@ -1,0 +1,4 @@
+en:
+  api:
+    not_found: 'Recurso no encontrado'
+    access_denied: 'Acceso denegado'

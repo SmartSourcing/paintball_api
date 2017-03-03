@@ -1,0 +1,36 @@
+== Welcome to Paintaball Admin application!
+
+== Installation
+
+Dependencies:
+
+    * Ruby 2.1.1
+    * Rails 4
+    * PostgreSQL
+    * Bundler
+    * ImageMagick
+
+== Not a mandatory one but makes it much easier for a development environment
+
+    * rvm, rbenv
+
+== Create the database
+
+    $ psql template1
+    template1=# CREATE ROLE paintballApi with login createdb;
+    template1=# exit;
+
+== Install the application
+
+    $ git clone git@github.com:SmartSourcing/paintball_api.git
+    $ cd paintball_api
+    $ gem install bundler
+    $ bundle install
+    $ rake db:create:all
+    $ rake db:migrate
+    $ rake db:seed
+    $ rails s -p 3000
+
+== To run tests
+
+    $ rake spec
