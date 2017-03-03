@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20170303204835) do
 
   create_table "tournament_phases", force: :cascade do |t|
     t.boolean  "active",              default: true
+    t.integer  "category_id"
     t.integer  "phase_id"
     t.integer  "tournament_id"
     t.integer  "tournament_dates_id"
@@ -141,6 +142,7 @@ ActiveRecord::Schema.define(version: 20170303204835) do
     t.datetime "updated_at",                         null: false
   end
 
+  add_index "tournament_phases", ["category_id"], name: "index_tournament_phases_on_category_id", using: :btree
   add_index "tournament_phases", ["phase_id"], name: "index_tournament_phases_on_phase_id", using: :btree
   add_index "tournament_phases", ["tournament_dates_id"], name: "index_tournament_phases_on_tournament_dates_id", using: :btree
   add_index "tournament_phases", ["tournament_id"], name: "index_tournament_phases_on_tournament_id", using: :btree

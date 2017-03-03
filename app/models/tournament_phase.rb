@@ -6,5 +6,5 @@ class TournamentPhase < ActiveRecord::Base
   belongs_to :phase
 
   # == Validations
-  validates :tournament_id, :tournament_date_id, :category_id, :phase_id, presence: true
+  validates :tournament_id, :tournament_dates_id, :category_id, :phase_id, presence: true
 end

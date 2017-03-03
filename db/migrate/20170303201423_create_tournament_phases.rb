@@ -3,6 +3,7 @@ class CreateTournamentPhases < ActiveRecord::Migration
     create_table :tournament_phases do |t|
       t.boolean :active, default: true
 
+      t.references :category, index: true
       t.references :phase, index: true
       t.references :tournament, index: true
       t.references :tournament_dates, index: true
