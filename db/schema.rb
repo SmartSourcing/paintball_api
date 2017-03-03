@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302181533) do
+ActiveRecord::Schema.define(version: 20170303204835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,40 @@ ActiveRecord::Schema.define(version: 20170302181533) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "fixtures", force: :cascade do |t|
+    t.integer  "team_one_id"
+    t.integer  "team_two_id"
+    t.integer  "tournament_phase_id"
+    t.integer  "points_team_one"
+    t.integer  "points_team_two"
+    t.integer  "time_left"
+    t.boolean  "active"
+    t.string   "state"
+    t.text     "comment"
+    t.boolean  "emailed",             default: false
+    t.boolean  "facebooked",          default: false
+    t.boolean  "twitted",             default: false
+    t.boolean  "notified",            default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "fixtures", ["team_one_id"], name: "index_fixtures_on_team_one_id", using: :btree
+  add_index "fixtures", ["team_two_id"], name: "index_fixtures_on_team_two_id", using: :btree
+  add_index "fixtures", ["tournament_phase_id"], name: "index_fixtures_on_tournament_phase_id", using: :btree
+
+  create_table "phases", force: :cascade do |t|
+    t.string   "name",                          null: false
+    t.boolean  "is_fixture",    default: false
+    t.string   "description"
+    t.integer  "tournament_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "phases", ["id"], name: "index_phases_on_id", using: :btree
+  add_index "phases", ["tournament_id"], name: "index_phases_on_tournament_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name",                          null: false
@@ -42,6 +76,20 @@ ActiveRecord::Schema.define(version: 20170302181533) do
     t.integer "tournament_date_id", null: false
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",                         null: false
+    t.string   "logo"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "country",                      null: false
+    t.string   "locale",        default: "es"
+    t.integer  "category_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "teams", ["category_id"], name: "index_teams_on_category_id", using: :btree
+
   create_table "tokens", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "token",                     null: false
@@ -49,6 +97,23 @@ ActiveRecord::Schema.define(version: 20170302181533) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tournament_category_team_standings", force: :cascade do |t|
+    t.integer  "wins",          null: false
+    t.integer  "losts",         null: false
+    t.integer  "ties",          null: false
+    t.integer  "year",          null: false
+    t.integer  "position",      null: false
+    t.integer  "tournament_id"
+    t.integer  "category_id"
+    t.integer  "team_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "tournament_category_team_standings", ["category_id"], name: "index_tournament_category_team_standings_on_category_id", using: :btree
+  add_index "tournament_category_team_standings", ["team_id"], name: "index_tournament_category_team_standings_on_team_id", using: :btree
+  add_index "tournament_category_team_standings", ["tournament_id"], name: "index_tournament_category_team_standings_on_tournament_id", using: :btree
 
   create_table "tournament_dates", force: :cascade do |t|
     t.text     "description",                      null: false
@@ -66,6 +131,19 @@ ActiveRecord::Schema.define(version: 20170302181533) do
   end
 
   add_index "tournament_dates", ["tournament_id"], name: "index_tournament_dates_on_tournament_id", using: :btree
+
+  create_table "tournament_phases", force: :cascade do |t|
+    t.boolean  "active",              default: true
+    t.integer  "phase_id"
+    t.integer  "tournament_id"
+    t.integer  "tournament_dates_id"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "tournament_phases", ["phase_id"], name: "index_tournament_phases_on_phase_id", using: :btree
+  add_index "tournament_phases", ["tournament_dates_id"], name: "index_tournament_phases_on_tournament_dates_id", using: :btree
+  add_index "tournament_phases", ["tournament_id"], name: "index_tournament_phases_on_tournament_id", using: :btree
 
   create_table "tournaments", force: :cascade do |t|
     t.string   "name",                           null: false

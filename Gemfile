@@ -16,6 +16,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# State Machine
+gem 'state_machine'
 # Upload images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'

@@ -6,8 +6,8 @@ module Api
       include Api::V1::Concerns::ErrorHandler
       include Api::V1::Concerns::Internacionalization
 
-      before_action  :check_security   #unless Rails.env == 'development'
-      before_action  :cors_set_headers if Rails.env == 'development'
+      before_action :check_security   unless Rails.env == 'development'
+      before_action :cors_set_headers if Rails.env == 'development'
 
       private
 
