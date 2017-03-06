@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303204835) do
+ActiveRecord::Schema.define(version: 20170306132650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,23 @@ ActiveRecord::Schema.define(version: 20170303204835) do
   add_index "fixtures", ["team_one_id"], name: "index_fixtures_on_team_one_id", using: :btree
   add_index "fixtures", ["team_two_id"], name: "index_fixtures_on_team_two_id", using: :btree
   add_index "fixtures", ["tournament_phase_id"], name: "index_fixtures_on_tournament_phase_id", using: :btree
+
+  create_table "gears", force: :cascade do |t|
+    t.string   "category",        null: false
+    t.string   "name",            null: false
+    t.integer  "year"
+    t.integer  "manufacturer_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "gears", ["manufacturer_id"], name: "index_gears_on_manufacturer_id", using: :btree
+
+  create_table "manufacturers", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "phases", force: :cascade do |t|
     t.string   "name",                          null: false
