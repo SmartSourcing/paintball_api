@@ -6,6 +6,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string  :lastname
       t.string  :nickname
       t.string  :dob
+      t.string  :number
       t.string  :nationality
       t.string  :position
       t.string  :logo

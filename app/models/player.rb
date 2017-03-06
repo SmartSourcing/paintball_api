@@ -1,5 +1,9 @@
 class Player < ActiveRecord::Base
 
+  # == Associations
+  belongs_to :roster
+  has_and_belongs_to_many :gears
+
   # == Validations
   validates :firstname, :lastname, :nickname, :nationality, presence: true
   validates :passport, numericality: { only_integer: true }

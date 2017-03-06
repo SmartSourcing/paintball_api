@@ -2,6 +2,7 @@ class Gear < ActiveRecord::Base
 
   # ==Relationships
   belongs_to :manufacturer
+  has_and_belongs_to_many :players
 
   # == Validations
   validates :name, :category, :manufacturer, :year, presence: true
