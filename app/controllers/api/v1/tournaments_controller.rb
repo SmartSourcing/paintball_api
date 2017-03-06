@@ -19,13 +19,6 @@ module Api
       def show
         @tournament = Tournament.find(params[:id])
       end
-
-      private
-
-      def tournament_params
-
-        params.fetch(:tournament, {})
-      end
     end
   end
 end
