@@ -10,7 +10,7 @@ FactoryGirl.define do
     number      { Faker::Number.number(3).to_s }
     age         { rand(0..101).to_s.rjust(3,'0') }
     dob         { (Faker::Time.between(DateTime.now - 40.years, DateTime.now - 20.years)).to_date }
-    nationality { ['US','AR', 'UK', 'UR'] }
+    nationality { ['US','AR', 'UK', 'UR'].sample }
     position    { ["back", "snake", "center", "mid", "dorito"].sample }
     passport    { Faker::Number.number(10).to_s }
     captain     { [true,false].sample }

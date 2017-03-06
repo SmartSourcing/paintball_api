@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306143030) do
+ActiveRecord::Schema.define(version: 20170306165604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,13 @@ ActiveRecord::Schema.define(version: 20170306143030) do
   end
 
   add_index "teams", ["category_id"], name: "index_teams_on_category_id", using: :btree
+
+  create_table "tmp_cube_players", id: false, force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "marker_id"
+    t.integer "manufacturer_id"
+    t.string  "nationality"
+  end
 
   create_table "tokens", force: :cascade do |t|
     t.string   "name",                      null: false

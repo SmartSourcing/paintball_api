@@ -30,6 +30,7 @@ Dependencies:
     $ rake db:migrate
     $ rake db:seed
     $ rake db:seed:players
+    $ rake db:seed:cube
 
 == Run Api
 

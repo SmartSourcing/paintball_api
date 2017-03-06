@@ -14,5 +14,11 @@ namespace :db do
         player.gears << Gear.markers.sample
       end
     end
+
+    desc "Create cube data"
+    task :cube=> :environment do
+
+        ActiveRecord::Base.connection.exec_query %Q{select generate_players_data();}
+    end
   end
 end
