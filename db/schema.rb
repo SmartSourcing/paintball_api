@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306141825) do
+ActiveRecord::Schema.define(version: 20170306142555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,18 @@ ActiveRecord::Schema.define(version: 20170306141825) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "rosters", force: :cascade do |t|
+    t.string   "category"
+    t.integer  "year"
+    t.integer  "tournament_date_id"
+    t.integer  "player_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "rosters", ["player_id"], name: "index_rosters_on_player_id", using: :btree
+  add_index "rosters", ["tournament_date_id"], name: "index_rosters_on_tournament_date_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name",                          null: false
