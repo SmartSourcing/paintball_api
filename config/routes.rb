@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :tournaments, only: [:index, :show]
       resources :tournament_dates, only: [:index, :show]
       resources :tournament_phases, only: [:index]
-      resources :tournament_category_team_standings, only: :show
+      resources :tournament_category_team_standings, only: :index
       resources :fixtures, only: [:index, :show]
     end
   end

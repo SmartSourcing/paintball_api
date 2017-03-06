@@ -7,7 +7,7 @@ class Fixture < ActiveRecord::Base
   belongs_to :tournament_phase
 
   # == Validations
-  validates :team_one, :team_two, :tournament_phase, :state, presence: true
+  validates :team_one, :team_two, :tournament_phases, :state, presence: true
 
   # == State machine
   state_machine :state, :initial => :pending do

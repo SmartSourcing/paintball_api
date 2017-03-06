@@ -1,6 +1,6 @@
 module Api
   module V1
-    class TournamentPhaseController < ApiController
+    class TournamentPhasesController < ApiController
 
       # Returns a list of tournament phases that belong to a tournament date
       #
@@ -9,7 +9,7 @@ module Api
       #   # => []
       def index
         tournament_date = TournamentDate.find(params[:date])
-        @phases         = TournamentPhase.where(tournament_date: tournament_date)
+        @phases         = TournamentPhase.where(tournament_dates_id: tournament_date.id)
       end
     end
   end

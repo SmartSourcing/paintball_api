@@ -7,4 +7,8 @@ class TournamentPhase < ActiveRecord::Base
 
   # == Validations
   validates :tournament_id, :tournament_dates_id, :category_id, :phase_id, presence: true
+
+  def name
+    "#{category.name} - #{phase.name}"
+  end
 end

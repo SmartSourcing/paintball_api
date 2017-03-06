@@ -1,6 +1,6 @@
 module Api
   module V1
-    class FixtureController < ApiController
+    class FixturesController < ApiController
 
       # Returns a list of tournament dates belong to a tournament
       #
@@ -9,7 +9,7 @@ module Api
       #   # => []
       def index
         phase     = TournamentPhase.find(params[:phase])
-        @fixtures = Fixture.where(tournament_phase: phase)
+        @fixtures = Fixture.where(tournament_phase_id: phase.id)
       end
 
       # Returns a given tournament_date
