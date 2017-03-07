@@ -25,6 +25,14 @@ module Api
           @token = Token.find_by_token(token)
         end
       end
+
+      def current_ability
+        @current_ability ||= Ability.new(current_token)
+      end
+
+      def current_token
+        @token || Token.first #<--- TODO: create a permissionless token for this situation
+      end
     end
   end
 end

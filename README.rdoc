@@ -43,7 +43,5 @@ Dependencies:
 
 TODO:
 
-    - Finish the controllers
     - Write the tests
-    - Add permissions to token record
     - Write post, path and delete methods using ability can can

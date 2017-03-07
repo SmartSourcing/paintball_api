@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306165604) do
+ActiveRecord::Schema.define(version: 20170306225451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,11 +151,14 @@ ActiveRecord::Schema.define(version: 20170306165604) do
   end
 
   create_table "tokens", force: :cascade do |t|
-    t.string   "name",                      null: false
-    t.string   "token",                     null: false
+    t.string   "name",                       null: false
+    t.string   "token",                      null: false
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "read",       default: true
+    t.boolean  "write",      default: false
+    t.boolean  "erase",      default: false
   end
 
   create_table "tournament_category_team_standings", force: :cascade do |t|
