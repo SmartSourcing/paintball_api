@@ -81,11 +81,11 @@ tbd = Team.create(name: 'Tampa Bay Damage', country: 'US', locale: 'en', categor
 ass = Team.create(name: 'Aftershock', country: 'US', locale: 'en', category: pro)
 
 # Fixture
-Fixture.create(team_one: sdd, team_two: hh, tournament_phases: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: true, state: 'pending')
-Fixture.create(team_one: xf, team_two: acd, tournament_phases: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
-Fixture.create(team_one: br, team_two: boo, tournament_phases: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
-Fixture.create(team_one: edi, team_two: red, tournament_phases: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
-Fixture.create(team_one: tbd, team_two: ass, tournament_phases: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
+Fixture.create(team_one: sdd, team_two: hh, tournament_phase: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: true, state: 'pending')
+Fixture.create(team_one: xf, team_two: acd, tournament_phase: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
+Fixture.create(team_one: br, team_two: boo, tournament_phase: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
+Fixture.create(team_one: edi, team_two: red, tournament_phase: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
+Fixture.create(team_one: tbd, team_two: ass, tournament_phase: t_phase, points_team_one: 0, points_team_two: 0, time_left: 840, active: false, state: 'pending')
 
 # Standings
 TournamentCategoryTeamStanding.create(tournament: t_nxl, category: pro, team: sdd, year: 2017,wins: 0, losts: 0, ties: 0, position: 0)

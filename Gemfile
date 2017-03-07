@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "minitest"
   # Collection of testing matchers
   gem 'shoulda-matchers'
   # Strategies for cleaning databases
@@ -49,6 +50,7 @@ group :test do
   gem 'factory_girl_rails'
   # to maintain session in integration tests
   gem 'rack_session_access'
+  # future integration
   # Jenkins result-format gem
   gem 'ci_reporter_rspec'
   # to take screenshots in case of error

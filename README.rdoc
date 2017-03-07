@@ -38,10 +38,10 @@ Dependencies:
 
 == To run tests
 
-    $ rake spec
+    # Only need to prep the db once.
 
+    $ RAILS_ENV=test rake db:test:preapre
+    $ RAILS_ENV=test rake db:seed
 
-TODO:
+    $ rake test
 
-    - Write the tests
-    - Write post, path and delete methods using ability can can

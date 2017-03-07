@@ -1,6 +1,6 @@
-require 'factory_girl'
-require 'faker'
-FactoryGirl.find_definitions
+#require 'factory_girl'
+#require 'faker'
+#FactoryGirl.find_definitions
 
 namespace :db do
   namespace :seed do

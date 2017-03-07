@@ -143,13 +143,6 @@ ActiveRecord::Schema.define(version: 20170306225451) do
 
   add_index "teams", ["category_id"], name: "index_teams_on_category_id", using: :btree
 
-  create_table "tmp_cube_players", id: false, force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "marker_id"
-    t.integer "manufacturer_id"
-    t.string  "nationality"
-  end
-
   create_table "tokens", force: :cascade do |t|
     t.string   "name",                       null: false
     t.string   "token",                      null: false

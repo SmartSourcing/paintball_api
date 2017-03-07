@@ -11,5 +11,8 @@ module PaintballApi
 
     config.api_only = true
     config.autoload_paths += %W(\#{config.root}/lib)
+    config.generators do |g|
+      g.test_framework :minitest, spec: true
+    end
   end
 end
