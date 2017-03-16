@@ -48,31 +48,6 @@ ActiveRecord::Schema.define(version: 20170306225451) do
   add_index "fixtures", ["team_two_id"], name: "index_fixtures_on_team_two_id", using: :btree
   add_index "fixtures", ["tournament_phase_id"], name: "index_fixtures_on_tournament_phase_id", using: :btree
 
-  create_table "gears", force: :cascade do |t|
-    t.string   "category",        null: false
-    t.string   "name",            null: false
-    t.integer  "year"
-    t.integer  "manufacturer_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "gears", ["manufacturer_id"], name: "index_gears_on_manufacturer_id", using: :btree
-
-  create_table "gears_players", id: false, force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "gear_id",   null: false
-  end
-
-  add_index "gears_players", ["gear_id", "player_id"], name: "index_gears_players_on_gear_id_and_player_id", using: :btree
-  add_index "gears_players", ["player_id", "gear_id"], name: "index_gears_players_on_player_id_and_gear_id", using: :btree
-
-  create_table "manufacturers", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "phases", force: :cascade do |t|
     t.string   "name",                          null: false
     t.boolean  "is_fixture",    default: false
