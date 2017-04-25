@@ -11,8 +11,8 @@ CarrierWave.configure do |config|
   config.storage         = :fog
   config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: 'AKIAIUMSSQKKG6EIZWJA',
-      aws_secret_access_key: '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'
+      aws_access_key_id: '',
+      aws_secret_access_key: ''
   }
   config.fog_directory        = bucket
   config.fog_use_ssl_for_aws  = false
